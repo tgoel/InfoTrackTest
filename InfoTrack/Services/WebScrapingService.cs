@@ -94,7 +94,7 @@ public class WebScrapingService : IWebScrapingService
             
             if (resultUrl.Contains(searchUrl))
             {
-                positions.Add(i);
+                positions.Add(i+1);
             }
         }
 
