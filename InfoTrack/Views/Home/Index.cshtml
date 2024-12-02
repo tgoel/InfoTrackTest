@@ -1,0 +1,33 @@
+﻿@model InfoTrack.Models.KeywordSearchResultModel
+
+<div>
+    <h1 class="display-4">Google Search Results Position</h1>
+    <br />
+    <br />
+    <div>
+        <form method="post" asp-controller="Home" asp-action="Index">
+            <label for="url">URL:</label>
+            <input type="text" id="url" name="Url" value="@Model?.Url" />
+            <div style="color: red">@Html.ValidationMessageFor(m => m.Url)</div>
+            <br />
+            <br />
+
+            <label for="keyword">Keyword:</label>
+            <input type="text" id="keyword" name="Keyword" value="@Model?.Keyword" />
+            <div style="color: red">@Html.ValidationMessageFor(m => m.Keyword)</div>
+            <br />
+            <br />
+
+            <button type="submit">Search</button>
+        </form>
+    </div>
+    <br />
+    <br />
+
+    @if (!string.IsNullOrEmpty(Model?.Result))
+    {
+        <div>
+            @(Model.Result == "No results" ? Model.Result : $"Results at positions: {Model.Result}")
+        </div>
+    }
+</div>
